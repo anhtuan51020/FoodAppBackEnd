@@ -41,6 +41,7 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "withAdminUi": true,
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Cart", "CartDetails", "Category", "Orders", "OrderDetails", "Product"]
   }
 }

@@ -8,7 +8,6 @@ services:
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - SPRING_DATASOURCE_URL=jdbc:mariadb://foodappbackend-mariadb:3306/foodappbackend?useLegacyDatetimeCode=false&serverTimezone=UTC
-      - SPRING_LIQUIBASE_URL=jdbc:mariadb://foodappbackend-mariadb:3306/foodappbackend?useLegacyDatetimeCode=false&serverTimezone=UTC
       - JHIPSTER_SLEEP=120 # gives time for mariadb server to start
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix

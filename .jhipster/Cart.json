@@ -1,0 +1,16 @@
+{
+  "fields": [
+    {
+      "fieldName": "lastActiveTime",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [],
+  "service": "serviceImpl",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "pagination",
+  "name": "Cart",
+  "changelogDate": "20220423064525"
+}

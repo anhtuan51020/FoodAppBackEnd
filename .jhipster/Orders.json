@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "receiverAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "receiverPhoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "receiverName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "service": "serviceImpl",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "pagination",
+  "name": "Orders",
+  "changelogDate": "20220423064946"
+}
