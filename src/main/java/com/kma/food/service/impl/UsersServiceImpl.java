@@ -1,11 +1,14 @@
 package com.kma.food.service.impl;
 
+import com.kma.food.domain.Role;
 import com.kma.food.domain.Users;
+import com.kma.food.repository.RoleRepository;
 import com.kma.food.repository.UsersRepository;
 import com.kma.food.service.UsersService;
 import com.kma.food.service.dto.UsersDTO;
 import com.kma.food.service.mapper.UsersMapper;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,11 +31,19 @@ public class UsersServiceImpl implements UsersService {
 
     private final UsersMapper usersMapper;
 
+    private final RoleRepository roleRepository;
+
     private PasswordEncoder passwordEncoder;
 
-    public UsersServiceImpl(UsersRepository usersRepository, UsersMapper usersMapper, PasswordEncoder passwordEncoder) {
+    public UsersServiceImpl(
+        UsersRepository usersRepository,
+        UsersMapper usersMapper,
+        RoleRepository roleRepository,
+        PasswordEncoder passwordEncoder
+    ) {
         this.usersRepository = usersRepository;
         this.usersMapper = usersMapper;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -43,6 +54,13 @@ public class UsersServiceImpl implements UsersService {
         usersDTO.setCreatedDate(Instant.now());
         usersDTO.setLastUpdate(Instant.now());
         Users users = usersMapper.toEntity(usersDTO);
+        users.setRoleList(new ArrayList<>());
+        for (String roleName : usersDTO.getRoleNameList()) {
+            Optional<Role> role = roleRepository.findOneByRoleName(roleName);
+            if (role.isPresent()) {
+                users.getRoleList().add(role.get());
+            }
+        }
         users = usersRepository.save(users);
         return usersMapper.toDto(users);
     }

@@ -43,7 +43,7 @@ public class DomainUserDetailsService implements UserDetailsService {
 
     private org.springframework.security.core.userdetails.User createSpringSecurityUser(String lowercaseLogin, Users user) {
         List<GrantedAuthority> grantedAuthorities = user
-            .getListRoles()
+            .getRoleList()
             .stream()
             .map(authority -> new SimpleGrantedAuthority(authority.getRoleName()))
             .collect(Collectors.toList());

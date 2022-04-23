@@ -1,5 +1,6 @@
 package com.kma.food.service.dto;
 
+import com.kma.food.domain.Role;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.List;
@@ -43,6 +44,10 @@ public class UsersDTO implements Serializable {
     private Instant lastUpdate;
 
     private CartDTO cartDTO;
+
+    private List<String> roleNameList;
+
+    private List<Role> roleList;
 
     private List<OrderDTO> orderDTOList;
 
